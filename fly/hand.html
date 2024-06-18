@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="../assets/css/output.css">
+    <script type="module" src="../assets/js/fly/script.js"></script>
+    <script type="module" src="../assets/js/sideBar/index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CP</title>
 </head>
@@ -12,13 +14,13 @@
 <body>
     <div class="flex font-Kalameh">
         <div
-            class="w-[16.5rem] bg-[#1D1B20] border-l shadow-lg lg:shadow-none z-[9999] lg:z-0 h-screen fixed hover:overflow-y-auto overflow-y-hidden transition-all duration-500 ease-out">
+            class="w-[16.5rem] select-none bg-[#1D1B20] border-l shadow-lg lg:shadow-none z-[9999] lg:z-0 h-screen fixed hover:overflow-y-auto overflow-y-hidden transition-all duration-500 ease-out">
             <div class="relative flex gap-2 justify-center items-center bg-white h-[4rem]"><a aria-current="page"
                     href="/" class="router-link-active router-link-exact-active text-[#0A77FF] font-bold text-[2rem]">
                     CP </a><span class="text-[#1D1B20]"> (Control Panel) </span>
                 <div class="absolute lg:hidden top-5 cursor-pointer left-5"><svg xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                        height="1em" viewBox="0 0 256 256">
+                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon"
+                        width="1em" height="1em" viewBox="0 0 256 256" >
                         <path fill="currentColor"
                             d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z">
                         </path>
@@ -28,7 +30,7 @@
             <div class="px-5 text-white">
                 <ul class="space-y-3"><!--[-->
                     <li class="group">
-                        <div
+                        <div id="fly_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,9 +39,9 @@
                                         stroke="#938F96" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round"></path>
                                 </svg><span class="text-[#605D64]">پرواز</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -49,7 +51,17 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="fly" class="pr-4 space-y-3 pt-3 hidden group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/fly/ticket.html"
+                                    class="">بلیط ها</a></li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/fly/hand.html"
+                                    class="">پرواز های دستی</a>
+                            </li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/fly/create.html"
+                                    class="">ایجاد پرواز</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="group">
                         <div
@@ -77,7 +89,7 @@
                         </div><!---->
                     </li>
                     <li class="group">
-                        <div
+                        <div id="support_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="18" height="22" viewBox="0 0 18 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,9 +97,9 @@
                                         d="M16 13V17H14V13H16ZM4 13V17H3C2.45 17 2 16.55 2 16V13H4ZM9 0C4.03 0 0 4.03 0 9V16C0 17.66 1.34 19 3 19H6V11H2V9C2 5.13 5.13 2 9 2C12.87 2 16 5.13 16 9V11H12V19H16V20H9V22H15C16.66 22 18 20.66 18 19V9C18 4.03 13.97 0 9 0Z"
                                         fill="#605D64"></path>
                                 </svg><span class="text-[#605D64]">پشتیبانی</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -97,10 +109,14 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="support" class="pr-4 space-y-3 pt-3 hidden group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/product/index.html"
+                                    class="">درباره ما</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="company_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,9 +138,9 @@
                                     <path d="M14 7.5H17" stroke="#938F96" stroke-width="1.5" stroke-miterlimit="10"
                                         stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg><span class="text-[#605D64]">کمپانی ها</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -134,10 +150,18 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="company" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/company/index.html"
+                                    class="">لیست کمپانی ها</a>
+                            </li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/company/create.html"
+                                    class="">ساخت کمپانی
+                                    جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="site_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,9 +178,9 @@
                                         d="M16.5 17.3799C16.09 17.3799 15.75 17.0399 15.75 16.6299V13.3799C15.75 12.9699 16.09 12.6299 16.5 12.6299C16.91 12.6299 17.25 12.9699 17.25 13.3799V16.6299C17.25 17.0399 16.91 17.3799 16.5 17.3799Z"
                                         fill="#938F96"></path>
                                 </svg><span class="text-[#605D64]">سایت ها</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -166,10 +190,18 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="site" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/sites/index.html"
+                                    class="">لیست سایت ها</a>
+                            </li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/sites/create.html"
+                                    class="">ساخت سایت
+                                    جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="user_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,9 +218,9 @@
                                         d="M18.1004 20.0546L18.1004 20.0543C18.0728 19.9131 18.1599 19.7809 18.2962 19.7485C18.984 19.6059 19.6348 19.3297 20.1537 18.927C20.8111 18.4299 21.2296 17.756 21.2296 16.99C21.2296 16.2254 20.8125 15.5508 20.1625 15.0622C19.653 14.6693 19.0332 14.4046 18.332 14.2428L18.332 14.2428L18.3294 14.2422C18.1968 14.2124 18.1078 14.0779 18.1377 13.9385C18.1682 13.8062 18.303 13.7178 18.4424 13.7484L18.5496 13.26L18.4417 13.7482C19.239 13.9244 19.9195 14.2362 20.4644 14.6561L20.4644 14.6561L20.4689 14.6595C21.2908 15.2781 21.7296 16.1277 21.7296 16.99C21.7296 17.8491 21.2837 18.7009 20.4562 19.3326L20.4562 19.3326L20.4535 19.3347C19.8997 19.7634 19.1927 20.0833 18.4027 20.2395L18.3716 20.2457L18.3587 20.2499L18.3553 20.25L18.3396 20.25C18.2203 20.25 18.1231 20.1712 18.1004 20.0546ZM18.2196 14.73C17.8196 14.64 17.5596 14.24 17.6496 13.83L18.2196 14.73Z"
                                         fill="#292D32" stroke="#938F96"></path>
                                 </svg><span class="text-[#605D64]">یوزر ها</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -198,10 +230,18 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="user" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/users/index.html"
+                                    class="">لیست یوزر ها </a>
+                            </li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/users/create.html"
+                                    class="">ساخت یوزر
+                                    جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="gateway_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -227,9 +267,9 @@
                                         d="M7.27976 22.75C7.08976 22.75 6.89973 22.68 6.74973 22.53C6.45973 22.24 6.45973 21.7599 6.74973 21.4699L7.43973 20.78L6.74973 20.09C6.45973 19.8 6.45973 19.32 6.74973 19.03C7.03973 18.74 7.51972 18.74 7.80972 19.03L9.02976 20.25C9.31976 20.54 9.31976 21.02 9.02976 21.31L7.80972 22.53C7.66972 22.68 7.46976 22.75 7.27976 22.75Z"
                                         fill="#938F96"></path>
                                 </svg><span class="text-[#605D64]">درگاه پرداخت</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -239,10 +279,17 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="gateway" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/"
+                                    class="router-link-active router-link-exact-active">لیست درگاه های پرداخت</a></li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/payment/create.html"
+                                    class="">ساخت درگاه
+                                    پرداخت جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="supplier_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -262,9 +309,9 @@
                                         d="M14.5 22.75H9.5C9.09 22.75 8.75 22.41 8.75 22V19.5C8.75 17.4 9.9 16.25 12 16.25C14.1 16.25 15.25 17.4 15.25 19.5V22C15.25 22.41 14.91 22.75 14.5 22.75ZM10.25 21.25H13.75V19.5C13.75 18.24 13.26 17.75 12 17.75C10.74 17.75 10.25 18.24 10.25 19.5V21.25Z"
                                         fill="#938F96"></path>
                                 </svg><span class="text-[#605D64]">تامین کننده ها</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -274,10 +321,18 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="supplier" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/index.html"
+                                    class="">لیست تامین کننده
+                                    ها</a></li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/create.html"
+                                    class="">ساخت تامین
+                                    کننده جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="wallet_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -299,9 +354,9 @@
                                     <path d="M2 22L3 21" stroke="#938F96" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round"></path>
                                 </svg><span class="text-[#605D64]">کیف پول</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -311,10 +366,18 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="wallet" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/index.html"
+                                    class="">لیست تامین کننده
+                                    ها</a></li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/create.html"
+                                    class="">ساخت تامین
+                                    کننده جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="marketing_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -334,9 +397,9 @@
                                         d="M14.5 22.75H9.5C9.09 22.75 8.75 22.41 8.75 22V19.5C8.75 17.4 9.9 16.25 12 16.25C14.1 16.25 15.25 17.4 15.25 19.5V22C15.25 22.41 14.91 22.75 14.5 22.75ZM10.25 21.25H13.75V19.5C13.75 18.24 13.26 17.75 12 17.75C10.74 17.75 10.25 18.24 10.25 19.5V21.25Z"
                                         fill="#938F96"></path>
                                 </svg><span class="text-[#605D64]">بازاریاب ها</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -346,10 +409,18 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="marketing" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/index.html"
+                                    class="">لیست تامین کننده
+                                    ها</a></li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/create.html"
+                                    class="">ساخت تامین
+                                    کننده جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="accounting_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -371,9 +442,9 @@
                                     <path d="M2 22L3 21" stroke="#938F96" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round"></path>
                                 </svg><span class="text-[#605D64]">حسابداری</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -383,10 +454,18 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="accounting" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/index.html"
+                                    class="">لیست تامین کننده
+                                    ها</a></li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/create.html"
+                                    class="">ساخت تامین
+                                    کننده جدید</a></li>
+                        </ul>
                     </li>
                     <li class="group">
-                        <div
+                        <div id="receive_parent"
                             class="flex px-5 py-3 cursor-pointer rounded-t-md hover:bg-white/10 transition-all hover:transition-all items-center justify-between">
                             <div class="flex gap-2 items-center"><svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -409,9 +488,9 @@
                                         d="M2 9.75C1.59 9.75 1.25 9.41 1.25 9C1.25 4.73 4.73 1.25 9 1.25C9.27 1.25 9.51999 1.4 9.64999 1.63C9.77999 1.87 9.78001 2.15 9.64001 2.39L8.59 4.14C8.38 4.49 7.92 4.61 7.56 4.4C7.2 4.19 7.08999 3.73 7.29999 3.37L7.57001 2.92C4.81001 3.57 2.73999 6.05 2.73999 9.01C2.74999 9.41 2.41 9.75 2 9.75Z"
                                         fill="#938F96"></path>
                                 </svg><span class="text-[#605D64]">دریافت و پرداخت</span></div><svg
-                                class="transition-all duration-500 text-[#605D64]" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
-                                height="1em" viewBox="0 0 24 24">
+                                class="transition-all duration-500 text-[#605D64] rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
                                         d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
@@ -421,7 +500,15 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div><!---->
+                        </div>
+                        <ul id="receive" class="pr-4 hidden space-y-3 pt-3 group-hover:bg-white/10 rounded-b-md">
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/index.html"
+                                    class="">لیست تامین کننده
+                                    ها</a></li>
+                            <li class="text-[#605D64] hover:text-white transition-all"><a href="/supplier/create.html"
+                                    class="">ساخت تامین
+                                    کننده جدید</a></li>
+                        </ul>
                     </li><!--]-->
                 </ul>
             </div>
@@ -436,7 +523,8 @@
                         stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
                 </svg>
                 <div class="flex items-end gap-1"><span>...</span> / <span class="text-[#938F96]">حسابداری</span> /
-                    <span>لیست حساب ها</span></div>
+                    <span>لیست حساب ها</span>
+                </div>
                 <div class="flex items-center gap-10">
                     <div class="bg-[#F7F8F9] rounded w-[19.5rem] h-[2.5rem] flex justify-around items-center"><img
                             src="/icon/search-normal.svg" alt=""><input type="text" class="outline-none bg-transparent"
@@ -447,7 +535,9 @@
             </div><!--[-->
             <div>
                 <div class="h-[5.5rem] w-full flex items-center justify-between px-8 shadow">
-                    <h2 class="text-[1.75rem] font-bold">بلیط ها</h2>
+                    <h2 class="text-[1.75rem] font-bold">پرواز های دستی</h2><button
+                        class="border rounded-lg px-4 py-[0.625rem] flex gap-2 items-center"><img src="/icon/add.svg"
+                            alt=""><span> ساخت پرواز </span></button>
                 </div><!-- Modal start -->
                 <div data-v-95336d3b=""
                     class="flex justify-center z-50 items-center h-screen w-screen fixed top-0 left-0 bg-black/50"
@@ -458,7 +548,8 @@
                         <div data-v-95336d3b=""
                             class="absolute top-4 flex items-center gap-5 right-4 text-xl cursor-pointer transition-all hover:transition-all duration-500">
                             <img data-v-95336d3b="" src="/icon/close.svg" alt=""><span data-v-95336d3b=""
-                                class="">جستجو</span></div><!-- modal content -->
+                                class="">جستجو</span>
+                        </div><!-- modal content -->
                         <div class="flex gap-5 px-5 py-2.5 flex-col">
                             <div class="flex flex-col gap-2"><label for="passport">شماره پاسپورت/کدملی</label><input
                                     type="text" placeholder="متن ورودی" class="input-style" id="passport"></div>
@@ -482,7 +573,8 @@
                         <div data-v-95336d3b=""
                             class="absolute top-4 flex items-center gap-5 right-4 text-xl cursor-pointer transition-all hover:transition-all duration-500">
                             <img data-v-95336d3b="" src="/icon/close.svg" alt=""><span data-v-95336d3b="" class="">فیلتر
-                                تاریخ</span></div><!-- modal content -->
+                                تاریخ</span>
+                        </div><!-- modal content -->
                         <div class="flex gap-5 px-5 py-2.5 flex-col">
                             <div class="flex flex-col gap-2"><label for="company">از تاریخ</label>
                                 <div class="flex cursor-pointer justify-between input-select"><span>متن ورودی</span><img
@@ -497,7 +589,7 @@
                 </div><!-- Modal end -->
                 <div class="overflow-x-auto px-4 mx-auto mt-5 mb-8">
                     <div class="flex justify-between rounded-t-lg px-2 py-4 border-t border-x items-center">
-                        <h6 class="font-semibold">بلیط ها</h6>
+                        <h6 class="font-semibold">پرواز های دستی</h6>
                         <div class="flex items-center gap-5"><button class="flex gap-2 items-center"><img
                                     src="/icon/search-normal.svg" alt="..."><span>جستجو</span></button><button
                                 class="flex gap-2 items-center"><img src="/icon/calendar.svg" alt="..."><span>فیلتر
@@ -507,9 +599,9 @@
                         </div>
                     </div>
                     <table class="table-auto border-collapse rounded-b-lg border w-full">
-                        <thead class="text-[14px] uppercase">
+                        <thead class="text-sm">
                             <tr>
-                                <th class="p-2 whitespace-nowrap flex justify-center">
+                                <th class="p-2whitespace-nowrap flex justify-center">
                                     <div class="text-start">
                                         <div class="inline-flex items-center"><label
                                                 class="relative flex items-center rounded-full cursor-pointer"
@@ -530,38 +622,59 @@
                                     <div class="text-start">ردیف</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">مسافرین</div>
+                                    <div class="text-start">شماره پرواز</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">کمپانی</div>
+                                    <div class="text-start">تاریخ و ساعت</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">سایت</div>
+                                    <div class="text-start">مسیر</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">یوزر</div>
+                                    <div class="text-start">ساعت خروج</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">تاریخ و ساعت رزرو</div>
+                                    <div class="text-start">مدت پرواز</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">کد آژانس</div>
+                                    <div class="text-start">هواپیما</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">تامین کننده و رفرنس</div>
+                                    <div class="text-start">ظرفیت</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">تیکت ID</div>
+                                    <div class="text-start">شنبه</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap border">
-                                    <div class="text-start">وضعیت</div>
+                                    <div class="text-start">یک</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap border">
+                                    <div class="text-start">دو</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap border">
+                                    <div class="text-start">سه</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap border">
+                                    <div class="text-start">چهار</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap border">
+                                    <div class="text-start">پنج</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap border">
+                                    <div class="text-start">جمعه</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap border">
+                                    <div class="text-start">سهمیه</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap border">
+                                    <div class="text-start"></div>
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="text-sm">
                             <tr
-                                class="hover:bg-gray-100 text-sm text-[#605D64] transition-all border hover:transition-all">
-                                <td class="px-2 py-4 flex justify-center whitespace-nowrap">
+                                class="hover:bg-gray-100 text-[#605D64] text-sm transition-all border hover:transition-all">
+                                <td class="px-2 flex justify-center py-4 whitespace-nowrap">
                                     <div class="inline-flex items-center"><label
                                             class="relative flex items-center rounded-full cursor-pointer"
                                             for="checkbox"><!-- before:h-12 before:w-12 --><input type="checkbox"
@@ -577,23 +690,29 @@
                                                 </svg></span></label></div>
                                 </td>
                                 <td class="px-2 border py-4 whitespace-nowrap">1</td>
-                                <td class="px-2 py-4 flex justify-center whitespace-nowrap"><img src="/icon/add.svg"
-                                        alt=""></td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> .CrsTrip </td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> .CrsTrip </td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> Hossein_ </td>
+                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> 569874516 </td>
                                 <td class="px-2 border py-4 whitespace-nowrap">20/02/1403 - 22:30</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">569874516</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">پرتو - 4565</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">1359821</td>
-                                <td class="px-2 bg-[#FFE2E8] border py-4 whitespace-nowrap">
-                                    <div class="flex justify-between"><span> خطا </span><img src="/icon/add.svg" alt="">
-                                    </div>
+                                <td class="px-2 border py-4 whitespace-nowrap">تهران - مشهد</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">12:35</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">1 ساعت و 25 دقیقه</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">F100</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">15 نفر</td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap">-</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">
+                                    <div class="flex justify-between"><button class="edit">ویرایش</button><button
+                                            class="delete">حذف</button></div>
                                 </td>
                             </tr>
                             <tr
-                                class="hover:bg-gray-100 text-sm text-[#605D64] transition-all border hover:transition-all">
-                                <td class="px-2 py-4 flex justify-center whitespace-nowrap">
+                                class="hover:bg-gray-100 text-[#605D64] text-sm transition-all border hover:transition-all">
+                                <td class="px-2 flex justify-center py-4 whitespace-nowrap">
                                     <div class="inline-flex items-center"><label
                                             class="relative flex items-center rounded-full cursor-pointer"
                                             for="checkbox"><!-- before:h-12 before:w-12 --><input type="checkbox"
@@ -609,23 +728,29 @@
                                                 </svg></span></label></div>
                                 </td>
                                 <td class="px-2 border py-4 whitespace-nowrap">2</td>
-                                <td class="px-2 py-4 flex justify-center whitespace-nowrap"><img src="/icon/add.svg"
-                                        alt=""></td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> .CrsTrip </td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> .CrsTrip </td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> Hossein_ </td>
+                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> 569874516 </td>
                                 <td class="px-2 border py-4 whitespace-nowrap">20/02/1403 - 22:30</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">569874516</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">پرتو - 4565</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">1359821</td>
-                                <td class="px-2 bg-[#FFE2E8] border py-4 whitespace-nowrap">
-                                    <div class="flex justify-between"><span> خطا </span><img src="/icon/add.svg" alt="">
-                                    </div>
+                                <td class="px-2 border py-4 whitespace-nowrap">تهران - مشهد</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">12:35</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">1 ساعت و 25 دقیقه</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">F100</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">15 نفر</td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap">-</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">
+                                    <div class="flex justify-between"><button class="edit">ویرایش</button><button
+                                            class="delete">حذف</button></div>
                                 </td>
                             </tr>
                             <tr
-                                class="hover:bg-gray-100 text-sm text-[#605D64] transition-all border hover:transition-all">
-                                <td class="px-2 py-4 flex justify-center whitespace-nowrap">
+                                class="hover:bg-gray-100 text-[#605D64] text-sm transition-all border hover:transition-all">
+                                <td class="px-2 flex justify-center py-4 whitespace-nowrap">
                                     <div class="inline-flex items-center"><label
                                             class="relative flex items-center rounded-full cursor-pointer"
                                             for="checkbox"><!-- before:h-12 before:w-12 --><input type="checkbox"
@@ -641,28 +766,32 @@
                                                 </svg></span></label></div>
                                 </td>
                                 <td class="px-2 border py-4 whitespace-nowrap">3</td>
-                                <td class="px-2 py-4 flex justify-center whitespace-nowrap"><img src="/icon/add.svg"
-                                        alt=""></td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> .CrsTrip </td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> .CrsTrip </td>
-                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> Hossein_ </td>
+                                <td class="px-2 border py-4 whitespace-nowrap text-[#0A77FF] underline"> 569874516 </td>
                                 <td class="px-2 border py-4 whitespace-nowrap">20/02/1403 - 22:30</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">569874516</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">پرتو - 4565</td>
-                                <td class="px-2 border py-4 whitespace-nowrap">1359821</td>
-                                <td class="px-2 bg-[#FFE2E8] border py-4 whitespace-nowrap">
-                                    <div class="flex justify-between"><span> خطا </span><img src="/icon/add.svg" alt="">
-                                    </div>
+                                <td class="px-2 border py-4 whitespace-nowrap">تهران - مشهد</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">12:35</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">1 ساعت و 25 دقیقه</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">F100</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">15 نفر</td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap"></td>
+                                <td class="px-2 border py-4 whitespace-nowrap">-</td>
+                                <td class="px-2 border py-4 whitespace-nowrap">
+                                    <div class="flex justify-between"><button class="edit">ویرایش</button><button
+                                            class="delete">حذف</button></div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div><!--]-->
+            </div>
         </div>
     </div>
 </body>
-
-<!-- <script type="module" src="./assets/js/flight/ticket.js"></script> -->
 
 </html>
